@@ -1,11 +1,16 @@
 const express = require('express')
+require('colors')
 require('dotenv').config()
 const cors = require('cors')
 
-const dataRoutes = require('./routes/dataRoutes')
+const dataRoutes = require('./routes/accessRoutes')
 const { errorHandler } = require('./middleware/errorMiddleware')
 
+const connectDB = require('./config/db')
+
 const port = process.env.PORT || 5000
+
+connectDB()
 
 const app = express()
 
